@@ -1,20 +1,24 @@
-import { ArrowUpRight } from "lucide-react"
-import { InstagramIcon, LinkedinIcon, WhatsappIcon } from "@/components/brand-icons"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
+import {
+  InstagramIcon,
+  LinkedinIcon,
+  WhatsappIcon,
+} from "@/components/brand-icons"
 
 const channels = [
   {
     icon: InstagramIcon,
     label: "Instagram",
-    handle: "@nicolasgomes.web",
-    description: "Acompanhe meus trabalhos e bastidores.",
-    href: "https://www.instagram.com/nicolasgomes.web/",
+    handle: "@vexacreative.br",
+    description: "Acompanhe nossos projetos, bastidores e novidades.",
+    href: "https://www.instagram.com/vexacreative.br/",
   },
   {
     icon: WhatsappIcon,
     label: "WhatsApp",
     handle: "(62) 98540-3863",
-    description: "Fale comigo direto para um orçamento.",
-    href: "https://wa.me/5562985403863?text=Ol%C3%A1%20Nicolas!%20Vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento.",
+    description: "Vamos conversar sobre seu projeto.",
+    href: "https://wa.me/5562985403863?text=Olá%20Nicolas!%20Vi%20seu%20site%20e%20gostaria%20de%20um%20orçamento.",
   },
   {
     icon: LinkedinIcon,
@@ -27,44 +31,69 @@ const channels = [
 
 export function Contact() {
   return (
-    <section id="contato">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
-        <div className="overflow-hidden rounded-3xl border border-border bg-primary px-6 py-12 text-primary-foreground sm:px-12 md:py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Vamos tirar sua ideia do papel?
-            </h2>
-            <p className="mt-4 text-pretty leading-relaxed text-primary-foreground/80">
-              Me escolha em qualquer canal abaixo. Respondo rápido e adoro
-              entender o desafio de cada projeto.
-            </p>
-          </div>
+    <section
+      id="contato"
+      className="relative overflow-hidden bg-[#0A0A0A] py-28"
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        {/* Cabeçalho */}
 
-          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
-            {channels.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-start gap-3 rounded-2xl bg-background p-6 text-foreground transition-transform hover:-translate-y-1"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <c.icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <div className="flex items-center gap-1 font-display font-bold">
-                    {c.label}
-                    <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                  <p className="text-sm font-medium text-primary">{c.handle}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                    {c.description}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1 text-sm font-medium text-violet-400">
+            ENTRE EM CONTATO
+          </span>
+
+          <h2 className="mt-6 text-5xl font-bold leading-tight text-white">
+            Vamos criar algo que as pessoas não esqueçam.
+          </h2>
+
+          <p className="mt-6 text-lg leading-8 text-zinc-400">
+            Conte sua ideia. Eu cuido da estratégia, produção e desenvolvimento
+            para transformar visitantes em clientes.
+          </p>
+
+          <a
+            href="https://wa.me/5562985403863?text=Olá%20Nicolas!%20Gostaria%20de%20um%20orçamento."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-violet-600 px-8 py-4 font-semibold text-white transition-all hover:bg-violet-500"
+          >
+            Solicitar orçamento
+
+            <ArrowRight className="h-5 w-5" />
+          </a>
+        </div>
+
+        {/* Cards */}
+
+        <div className="mt-20 grid gap-6 md:grid-cols-3">
+          {channels.map((channel) => (
+            <a
+              key={channel.label}
+              href={channel.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-3xl border border-zinc-800 bg-zinc-950 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-900">
+                <channel.icon className="h-6 w-6 text-violet-400" />
+              </div>
+
+              <h3 className="mt-6 flex items-center gap-2 text-2xl font-bold text-white">
+                {channel.label}
+
+                <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </h3>
+
+              <p className="mt-2 font-medium text-violet-400">
+                {channel.handle}
+              </p>
+
+              <p className="mt-4 leading-7 text-zinc-400">
+                {channel.description}
+              </p>
+            </a>
+          ))}
         </div>
       </div>
     </section>
