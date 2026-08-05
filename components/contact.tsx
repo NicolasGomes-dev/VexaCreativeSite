@@ -36,8 +36,6 @@ export function Contact() {
       className="relative overflow-hidden bg-[#0A0A0A] py-28"
     >
       <div className="mx-auto max-w-6xl px-6">
-        {/* Cabeçalho */}
-
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1 text-sm font-medium text-violet-400">
             ENTRE EM CONTATO
@@ -59,12 +57,9 @@ export function Contact() {
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-violet-600 px-8 py-4 font-semibold text-white transition-all hover:bg-violet-500"
           >
             Solicitar orçamento
-
             <ArrowRight className="h-5 w-5" />
           </a>
         </div>
-
-        {/* Cards */}
 
         <div className="mt-20 grid gap-6 md:grid-cols-3">
           {channels.map((channel) => (
@@ -81,7 +76,6 @@ export function Contact() {
 
               <h3 className="mt-6 flex items-center gap-2 text-2xl font-bold text-white">
                 {channel.label}
-
                 <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </h3>
 
