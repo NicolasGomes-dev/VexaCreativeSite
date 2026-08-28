@@ -1,160 +1,310 @@
-import Image from "next/image"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-background"
+      className="relative flex min-h-screen items-center overflow-hidden bg-black"
     >
-      {/* Gradiente de fundo */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-180px] h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[180px]" />
 
-        <div className="absolute right-[-150px] top-1/3 h-[350px] w-[350px] rounded-full bg-fuchsia-500/10 blur-[140px]" />
+      {/* =========================
+          VÍDEO DE BACKGROUND
+      ========================== */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="
+          absolute
+          inset-0
+          h-full
+          w-full
+          object-cover
+          scale-105
+          animate-[heroZoom_18s_ease-in-out_infinite_alternate]
+        "
+      >
+        <source src="/videos/drone.mp4" type="video/mp4" />
+      </video>
 
-        <div className="absolute left-[-120px] bottom-0 h-[300px] w-[300px] rounded-full bg-blue-500/10 blur-[120px]" />
-      </div>
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-20 md:grid-cols-2 lg:py-28">
+      {/* =========================
+          OVERLAY ESCURO
+      ========================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-black/55
+        "
+      />
 
-        {/* Texto */}
-        <div className="flex flex-col items-start gap-6">
 
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-xs font-medium text-muted-foreground backdrop-blur">
+      {/* =========================
+          GRADIENTE CINEMATOGRÁFICO
+      ========================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-r
+          from-black
+          via-black/65
+          to-black/20
+        "
+      />
+
+
+      {/* =========================
+          GRADIENTE ROXO DA VEXA
+      ========================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_75%_50%,rgba(139,92,246,0.18),transparent_40%)]
+        "
+      />
+
+
+      {/* =========================
+          CONTEÚDO
+      ========================== */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-7xl
+          px-6
+          py-32
+          lg:px-8
+        "
+      >
+
+        <div className="max-w-4xl">
+
+
+          {/* =========================
+              BADGE
+          ========================== */}
+          <div
+            className="
+              mb-8
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-white/15
+              bg-white/5
+              px-4
+              py-2
+              text-xs
+              font-medium
+              uppercase
+              tracking-[0.2em]
+              text-white/80
+              backdrop-blur-md
+            "
+          >
             <Sparkles className="h-3.5 w-3.5 text-violet-400" />
-            Estratégia • Design • Tecnologia
-          </span>
 
-          <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight lg:text-7xl">
-            Sua marca com{" "}
-            <span className="text-white">
-              conteúdo que
-            </span>{" "}
+            Estratégia • Design • Tecnologia
+          </div>
+
+
+          {/* =========================
+              TÍTULO
+          ========================== */}
+          <h1
+            className="
+              font-display
+              text-5xl
+              font-extrabold
+              leading-[0.95]
+              tracking-tight
+              text-white
+              sm:text-6xl
+              md:text-7xl
+              lg:text-8xl
+            "
+          >
+
+            Criamos presença.
+            <br />
+
             <span className="text-violet-400">
-              engaja
-            </span>{" "}
-            e um site que{" "}
-            <span className="text-violet-400">
-              converte.
+              Geramos impacto.
             </span>
+
           </h1>
 
-          <p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
-            A VEXA impulsiona empresas com estratégias de conteúdo,
-            vídeos de alto impacto e gestão de redes sociais,
-            além de desenvolver sites que transformam visitantes em clientes.
+
+          {/* =========================
+              DESCRIÇÃO
+          ========================== */}
+          <p
+            className="
+              mt-8
+              max-w-2xl
+              text-base
+              leading-relaxed
+              text-white/70
+              sm:text-lg
+              md:text-xl
+            "
+          >
+            Transformamos marcas em experiências digitais
+            que conectam, envolvem e geram resultados.
           </p>
 
-          {/* Botões */}
-          <div className="flex flex-wrap gap-4">
+
+          {/* =========================
+              BOTÕES
+          ========================== */}
+          <div className="mt-10 flex flex-wrap gap-4">
 
             <a href="#contato">
               <Button
                 size="lg"
                 className="
+                  h-12
                   bg-violet-600
-                  hover:bg-violet-500
+                  px-7
                   text-white
-                  shadow-lg
-                  shadow-violet-600/30
+                  shadow-xl
+                  shadow-violet-600/20
                   transition-all
                   duration-300
                   hover:scale-105
+                  hover:bg-violet-500
                 "
               >
                 Solicitar orçamento
+
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
+
 
             <a href="#videos">
               <Button
                 size="lg"
                 variant="outline"
                 className="
-                  border-violet-500/40
-                  hover:border-violet-500
-                  hover:bg-violet-500/10
+                  h-12
+                  border-white/20
+                  bg-white/5
+                  px-7
+                  text-white
+                  backdrop-blur-md
                   transition-all
                   duration-300
+                  hover:border-violet-400
+                  hover:bg-violet-500/10
+                  hover:text-white
                 "
               >
-                Ver meus trabalhos
+                Ver nossos projetos
               </Button>
             </a>
 
           </div>
 
-          {/* Indicadores */}
-          <dl className="mt-6 flex flex-wrap gap-10 border-t border-border/60 pt-8">
+
+          {/* =========================
+              INDICADORES
+          ========================== */}
+          <div
+            className="
+              mt-14
+              flex
+              flex-wrap
+              gap-8
+              border-t
+              border-white/10
+              pt-7
+              sm:gap-14
+            "
+          >
 
             <div>
-              <dt className="text-3xl font-bold text-violet-400">
+              <p className="text-2xl font-bold text-white">
                 3+
-              </dt>
-              <dd className="text-sm text-muted-foreground">
+              </p>
+
+              <p className="mt-1 text-xs text-white/50">
                 Serviços especializados
-              </dd>
+              </p>
             </div>
 
+
             <div>
-              <dt className="text-3xl font-bold text-violet-400">
+              <p className="text-2xl font-bold text-white">
                 100%
-              </dt>
-              <dd className="text-sm text-muted-foreground">
+              </p>
+
+              <p className="mt-1 text-xs text-white/50">
                 Foco em resultado
-              </dd>
+              </p>
             </div>
+
 
             <div>
-              <dt className="text-3xl font-bold text-violet-400">
+              <p className="text-2xl font-bold text-white">
                 24h
-              </dt>
-              <dd className="text-sm text-muted-foreground">
+              </p>
+
+              <p className="mt-1 text-xs text-white/50">
                 Retorno rápido
-              </dd>
+              </p>
             </div>
-
-          </dl>
-        </div>
-
-        {/* Imagem */}
-        <div className="relative">
-
-          {/* Glow atrás da imagem */}
-          <div className="absolute inset-0 -z-10 flex items-center justify-center">
-            <div className="h-[420px] w-[420px] rounded-full bg-violet-600/20 blur-[120px]" />
-          </div>
-
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-violet-600/20">
-
-            <Image
-              src="/hero-vexa.png"
-              alt="Espaço de trabalho criativo"
-              fill
-              priority
-              className="object-cover transition-transform duration-700 hover:scale-105"
-            />
-
-          </div>
-
-          <div className="absolute -bottom-6 -left-6 rounded-2xl border border-white/10 bg-card/80 p-5 backdrop-blur-xl shadow-xl">
-
-            <p className="font-display text-sm font-bold">
-              Crescimento Online
-            </p>
-
-            <p className="text-xs text-muted-foreground">
-              Tudo o que sua empresa precisa.
-            </p>
 
           </div>
 
         </div>
 
       </div>
+
+
+      {/* =========================
+          INDICADOR DE SCROLL
+      ========================== */}
+      <a
+        href="#servicos"
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          z-10
+          hidden
+          -translate-x-1/2
+          flex-col
+          items-center
+          gap-2
+          text-[10px]
+          uppercase
+          tracking-[0.3em]
+          text-white/40
+          transition-colors
+          hover:text-white/70
+          md:flex
+        "
+      >
+
+        <span>
+          Scroll para explorar
+        </span>
+
+        <ChevronDown className="h-4 w-4 animate-bounce" />
+
+      </a>
+
     </section>
   )
 }
