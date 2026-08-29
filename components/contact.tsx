@@ -21,11 +21,11 @@ const channels = [
     href: "https://wa.me/5562985403863?text=Olá%20Nicolas!%20Vi%20seu%20site%20e%20gostaria%20de%20um%20orçamento.",
   },
   {
-    icon: LinkedinIcon,
-    label: "LinkedIn",
-    handle: "nicolasg-dev",
-    description: "Conecte-se comigo profissionalmente.",
-    href: "https://www.linkedin.com/in/nicolasg-dev/",
+    icon: InstagramIcon,
+    label: "Instagram",
+    handle: "@br.dronefilms",
+    description: "Acompanhe nossos trabalhos e produções aéreas.",
+    href: "https://www.instagram.com/br.dronefilms/",
   },
 ]
 
