@@ -7,7 +7,6 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden bg-black"
     >
-
       {/* =========================
           VÍDEO DE BACKGROUND
       ========================== */}
@@ -30,7 +29,6 @@ export function Hero() {
         <source src="/videos/drone.mp4" type="video/mp4" />
       </video>
 
-
       {/* =========================
           OVERLAY ESCURO
       ========================== */}
@@ -41,7 +39,6 @@ export function Hero() {
           bg-black/55
         "
       />
-
 
       {/* =========================
           GRADIENTE CINEMATOGRÁFICO
@@ -57,7 +54,6 @@ export function Hero() {
         "
       />
 
-
       {/* =========================
           GRADIENTE ROXO DA VEXA
       ========================== */}
@@ -68,7 +64,6 @@ export function Hero() {
           bg-[radial-gradient(circle_at_75%_50%,rgba(139,92,246,0.18),transparent_40%)]
         "
       />
-
 
       {/* =========================
           CONTEÚDO
@@ -85,9 +80,7 @@ export function Hero() {
           lg:px-8
         "
       >
-
         <div className="max-w-4xl">
-
 
           {/* =========================
               BADGE
@@ -114,9 +107,8 @@ export function Hero() {
           >
             <Sparkles className="h-3.5 w-3.5 text-violet-400" />
 
-            Estratégia • Design • Tecnologia
+            Audiovisual • Marketing • Tecnologia
           </div>
-
 
           {/* =========================
               TÍTULO
@@ -134,16 +126,13 @@ export function Hero() {
               lg:text-8xl
             "
           >
-
             Criamos presença.
             <br />
 
             <span className="text-violet-400">
               Geramos impacto.
             </span>
-
           </h1>
-
 
           {/* =========================
               DESCRIÇÃO
@@ -159,10 +148,11 @@ export function Hero() {
               md:text-xl
             "
           >
-            Transformamos marcas em experiências digitais
-            que conectam, envolvem e geram resultados.
+            A VEXA CREATIVE combina produção audiovisual, estratégias de
+            marketing digital, gestão de redes sociais e desenvolvimento de
+            sites para transformar marcas em experiências digitais que
+            conectam, envolvem e geram oportunidades.
           </p>
-
 
           {/* =========================
               BOTÕES
@@ -191,7 +181,6 @@ export function Hero() {
               </Button>
             </a>
 
-
             <a href="#videos">
               <Button
                 size="lg"
@@ -216,7 +205,6 @@ export function Hero() {
 
           </div>
 
-
           {/* =========================
               INDICADORES
           ========================== */}
@@ -232,7 +220,6 @@ export function Hero() {
               sm:gap-14
             "
           >
-
             <div>
               <p className="text-2xl font-bold text-white">
                 3+
@@ -242,7 +229,6 @@ export function Hero() {
                 Serviços especializados
               </p>
             </div>
-
 
             <div>
               <p className="text-2xl font-bold text-white">
@@ -254,7 +240,6 @@ export function Hero() {
               </p>
             </div>
 
-
             <div>
               <p className="text-2xl font-bold text-white">
                 24h
@@ -264,13 +249,10 @@ export function Hero() {
                 Retorno rápido
               </p>
             </div>
-
           </div>
 
         </div>
-
       </div>
-
 
       {/* =========================
           INDICADOR DE SCROLL
@@ -296,13 +278,11 @@ export function Hero() {
           md:flex
         "
       >
-
         <span>
           Scroll para explorar
         </span>
 
         <ChevronDown className="h-4 w-4 animate-bounce" />
-
       </a>
 
     </section>
