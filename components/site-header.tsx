@@ -38,15 +38,34 @@ export function SiteHeader() {
               key={link.href}
               href={link.href}
               className="
+                group
+                relative
+                py-2
                 text-sm
                 font-medium
                 text-muted-foreground
-                transition-all
+                transition-colors
                 duration-300
                 hover:text-violet-400
               "
             >
               {link.label}
+
+              {/* Sublinhado */}
+              <span
+                className="
+                  absolute
+                  -bottom-1
+                  left-0
+                  h-[2px]
+                  w-0
+                  rounded-full
+                  bg-violet-500
+                  transition-all
+                  duration-300
+                  group-hover:w-full
+                "
+              />
             </a>
           ))}
         </nav>
@@ -69,7 +88,7 @@ export function SiteHeader() {
                 shadow-violet-600/30
               "
             >
-              Fale comigo
+              Fale conosco
             </Button>
           </a>
         </div>
