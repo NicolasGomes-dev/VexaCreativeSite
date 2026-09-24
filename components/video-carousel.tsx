@@ -27,7 +27,7 @@ const videos = [
   {
     number: "04",
     title: "Conteúdo que Impacta",
-    src: "/videos/video-05.mp4",
+    src: "/videos/video-04.mp4",
   },
 ]
 
@@ -398,17 +398,6 @@ export function VideoCarousel() {
                   >
                     {video.title}
                   </h3>
-
-                  <p
-                    className="
-                      mt-2
-                      text-xs
-                      leading-relaxed
-                      text-zinc-500
-                    "
-                  >
-                    Produção audiovisual profissional para marcas.
-                  </p>
                 </div>
               </article>
             ))}

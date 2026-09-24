@@ -11,6 +11,8 @@ export function Hero() {
         overflow-hidden
         bg-[#070707]
         text-white
+        pt-24
+
       "
     >
       {/* =====================================================
@@ -18,6 +20,13 @@ export function Hero() {
       ====================================================== */}
 
       <div className="pointer-events-none absolute inset-0">
+
+        {/* Pontos de luz */}
+        <div className="absolute left-[12%] top-[28%] h-1.5 w-1.5 rounded-full bg-violet-400/40" />
+
+        <div className="absolute right-[18%] top-[22%] h-1 w-1 rounded-full bg-violet-300/30" />
+
+        <div className="absolute right-[10%] bottom-[20%] h-1.5 w-1.5 rounded-full bg-white/20" />
 
         {/* Glow roxo */}
 

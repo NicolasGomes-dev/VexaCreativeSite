@@ -1,5 +1,5 @@
+import Link from "next/link"
 import {
-  ArrowUpRight,
   Camera,
   Code2,
   Film,
@@ -51,15 +51,15 @@ const specialties = [
   },
   {
     icon: Monitor,
-    label: "Web",
+    label: "Web Design",
   },
 ]
 
 export function Services() {
   return (
     <section
-      id="servicos"
-      className="relative overflow-hidden bg-[#08080B] text-white"
+      id="services"
+      className="relative overflow-hidden bg-[#F5F5F7] text-[#08080B]"
     >
       {/* Background */}
 
@@ -144,37 +144,26 @@ export function Services() {
                 max-w-4xl
                 text-4xl
                 font-black
-                leading-[0.95]
-                tracking-tight
+                leading-[0.92]
+                tracking-[-0.04em]
                 sm:text-5xl
                 lg:text-7xl
               "
             >
               Onde criatividade
               <br />
-
               encontra{" "}
               <span className="text-violet-400">
                 tecnologia.
               </span>
             </h2>
 
+            <p className="mt-6 max-w-2xl text-base leading-7 text-black/55 sm:text-lg">
+              Unimos audiovisual e tecnologia para criar experiências que fortalecem
+              marcas, comunicam ideias e geram novas oportunidades.
+            </p>
+
           </div>
-
-
-          <p
-            className="
-              max-w-lg
-              text-base
-              leading-8
-              text-white/45
-              lg:justify-self-end
-            "
-          >
-            Unimos audiovisual e desenvolvimento web para
-            construir experiências que fortalecem marcas e
-            criam novas oportunidades.
-          </p>
 
         </div>
 
@@ -183,235 +172,122 @@ export function Services() {
             SERVICES
         ====================================================== */}
 
-        <div className="mt-20 grid gap-5 lg:grid-cols-2">
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
 
           {services.map((service) => {
 
             const Icon = service.icon
 
             return (
-              <article
+              <Link
                 key={service.number}
+                href={
+                  service.number === "01"
+                    ? "/servicos/audiovisual"
+                    : "/servicos/tecnologia"
+                }
                 className="
                   group
                   relative
-                  min-h-[520px]
+                  flex
+                  min-h-[220px]
+                  flex-col
+                  justify-between
                   overflow-hidden
-                  rounded-[2rem]
+                  rounded-[1.75rem]
                   border
-                  border-white/10
-                  bg-white/[0.025]
-                  p-8
+                  border-black/10
+                  bg-white
+                  p-7
+                  shadow-[0_8px_30px_rgba(0,0,0,0.05)]
                   transition-all
                   duration-500
-                  hover:-translate-y-2
-                  hover:border-violet-500/30
-                  hover:bg-white/[0.045]
-                  hover:shadow-2xl
-                  hover:shadow-violet-500/10
-                  sm:p-10
-                  lg:p-12
+                  hover:-translate-y-1
+                  hover:border-violet-500/50
+                  hover:shadow-[0_16px_40px_rgba(124,58,237,0.12)]
+                  sm:p-8
                 "
               >
 
-                {/* Número gigante */}
-
-                <span
-                  className="
-                    pointer-events-none
-                    absolute
-                    -right-3
-                    -top-8
-                    text-[180px]
-                    font-black
-                    leading-none
-                    tracking-tighter
-                    text-white/[0.025]
-                    transition-all
-                    duration-500
-                    group-hover:text-violet-500/[0.08]
-                  "
-                >
-                  {service.number}
-                </span>
-
-
-                {/* Glow */}
+                {/* ÍCONE */}
 
                 <div
                   className="
-                    pointer-events-none
-                    absolute
-                    -right-20
-                    -top-20
-                    h-72
-                    w-72
-                    rounded-full
-                    bg-violet-500/10
-                    blur-[100px]
-                    opacity-0
-                    transition-opacity
-                    duration-700
-                    group-hover:opacity-100
+                    flex
+                    h-14
+                    w-14
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-violet-500/30
+                    bg-violet-500/[0.04]
+                    text-violet-400
+                    transition-all
+                    duration-300
+                    group-hover:scale-105
+                    group-hover:border-violet-500/50
+                    group-hover:bg-violet-500/[0.08]
                   "
-                />
+                >
+                  <Icon className="h-5 w-5" />
+                </div>
 
 
-                <div className="relative z-10 flex h-full flex-col">
+                {/* TÍTULO + CTA */}
 
-
-                  {/* Topo */}
-
-                  <div className="flex items-start justify-between">
-
-                    <div
-                      className="
-                        flex
-                        h-14
-                        w-14
-                        items-center
-                        justify-center
-                        rounded-2xl
-                        border
-                        border-violet-500/20
-                        bg-violet-500/10
-                        transition-all
-                        duration-500
-                        group-hover:scale-110
-                        group-hover:border-violet-500/40
-                        group-hover:bg-violet-500/20
-                      "
-                    >
-                      <Icon
-                        className="
-                          h-6
-                          w-6
-                          text-violet-400
-                          transition-transform
-                          duration-500
-                          group-hover:rotate-6
-                        "
-                      />
-                    </div>
-
-
-                    <div
-                      className="
-                        flex
-                        h-11
-                        w-11
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-white/10
-                        text-white/30
-                        transition-all
-                        duration-500
-                        group-hover:border-violet-500/40
-                        group-hover:bg-violet-500
-                        group-hover:text-white
-                      "
-                    >
-                      <ArrowUpRight className="h-4 w-4" />
-                    </div>
-
-                  </div>
-
-
-                  {/* Categoria */}
-
-                  <span
-                    className="
-                      mt-12
-                      text-xs
-                      font-semibold
-                      uppercase
-                      tracking-[0.25em]
-                      text-violet-400
-                    "
-                  >
-                    {service.eyebrow}
-                  </span>
-
-
-                  {/* Título */}
+                <div className="flex items-end justify-between gap-6">
 
                   <h3
                     className="
-                      mt-4
-                      max-w-lg
-                      text-3xl
-                      font-bold
-                      leading-tight
+                      text-2xl
+                      font-semibold
                       tracking-tight
-                      text-white
-                      sm:text-4xl
+                      text-black
+                      transition-all
+                      duration-300
+                      group-hover:translate-x-1
+                      group-hover:text-violet-600
                     "
                   >
                     {service.title}
                   </h3>
 
 
-                  {/* Descrição */}
+                  <div className="flex shrink-0 items-center gap-3">
 
-                  <p
-                    className="
-                      mt-6
-                      max-w-xl
-                      text-base
-                      leading-8
-                      text-white/45
-                    "
-                  >
-                    {service.description}
-                  </p>
+                    <span
+                      className="
+                        text-[9px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.25em]
+                        text-black/50
+                        transition-colors
+                        duration-300
+                        group-hover:text-violet-500
+                      "
+                    >
+                      Clique aqui
+                    </span>
 
-
-                  {/* Linha */}
-
-                  <div className="mt-auto pt-10">
-
-                    <div className="mb-6 h-px w-full bg-white/10" />
-
-
-                    {/* Features */}
-
-                    <div className="grid gap-3">
-
-                      {service.features.map((feature) => (
-
-                        <div
-                          key={feature}
-                          className="flex items-center gap-3"
-                        >
-
-                          <span
-                            className="
-                              h-1.5
-                              w-1.5
-                              rounded-full
-                              bg-violet-400
-                              shadow-lg
-                              shadow-violet-500/50
-                            "
-                          />
-
-                          <span className="text-sm text-white/65">
-                            {feature}
-                          </span>
-
-                        </div>
-
-                      ))}
-
-                    </div>
+                    <span
+                      className="
+                        text-lg
+                        text-violet-400
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-1
+                      "
+                    >
+                      →
+                    </span>
 
                   </div>
 
                 </div>
 
-              </article>
+              </Link>
             )
           })}
 
@@ -422,7 +298,7 @@ export function Services() {
             ESPECIALIDADES
         ====================================================== */}
 
-        <div className="mt-6 border-y border-white/10">
+        <div className="mt-6 border-y border-black/10">
 
           <div className="grid grid-cols-2 lg:grid-cols-4">
 
@@ -443,10 +319,9 @@ export function Services() {
                     transition-all
                     duration-300
                     hover:bg-violet-500/[0.04]
-                    ${
-                      index !== 0
-                        ? "border-t border-white/10 lg:border-l lg:border-t-0"
-                        : ""
+                    ${index !== 0
+                      ? "border-t border-black/10 lg:border-l lg:border-t-0"
+                      : ""
                     }
                   `}
                 >
@@ -468,7 +343,7 @@ export function Services() {
                       font-semibold
                       uppercase
                       tracking-[0.18em]
-                      text-white/55
+                      text-black/50
                     "
                   >
                     {item.label}
