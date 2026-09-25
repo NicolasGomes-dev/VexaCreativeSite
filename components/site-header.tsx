@@ -6,8 +6,42 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 const navLinks = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Planos", href: "#planos" },
+  {
+    label: "Serviços",
+    href: "#services",
+    dropdown: [
+      {
+        label: "Produção Audiovisual",
+        href: "/servicos/audiovisual",
+      },
+      {
+        label: "Desenvolvimento Web",
+        href: "/servicos/tecnologia",
+      },
+      {
+        label: "Produção Aérea",
+        href: "/servicos/aerea",
+      },
+    ],
+  },
+  {
+    label: "Planos",
+    href: "#planos",
+    dropdown: [
+      {
+        label: "Freelancer Video",
+        href: "/planos/freelancer-video",
+      },
+      {
+        label: "Gestão de Redes Sociais",
+        href: "/planos/gestao-redes-sociais",
+      },
+      {
+        label: "Desenvolvimento de Site",
+        href: "/planos/desenvolvimento-site",
+      },
+    ],
+  },
   { label: "Vídeos", href: "#videos" },
   { label: "Contato", href: "#contato" },
 ]
@@ -34,39 +68,95 @@ export function SiteHeader() {
         {/* Menu Desktop */}
         <nav className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
-            <a
+            <div
               key={link.href}
-              href={link.href}
-              className="
-                group
-                relative
-                py-2
-                text-sm
-                font-medium
-                text-muted-foreground
-                transition-colors
-                duration-300
-                hover:text-violet-400
-              "
+              className="group relative"
             >
-              {link.label}
-
-              {/* Sublinhado */}
-              <span
+              <a
+                href={link.href}
                 className="
-                  absolute
-                  -bottom-1
-                  left-0
-                  h-[2px]
-                  w-0
-                  rounded-full
-                  bg-violet-500
-                  transition-all
+                  relative
+                  block
+                  py-2
+                  text-sm
+                  font-medium
+                  text-muted-foreground
+                  transition-colors
                   duration-300
-                  group-hover:w-full
+                  hover:text-violet-400
                 "
-              />
-            </a>
+              >
+                {link.label}
+
+                {/* Sublinhado */}
+                <span
+                  className="
+                    absolute
+                    -bottom-1
+                    left-0
+                    h-[2px]
+                    w-0
+                    rounded-full
+                    bg-violet-500
+                    transition-all
+                    duration-300
+                    group-hover:w-full
+                  "
+                />
+              </a>
+
+              {/* Dropdown Serviços */}
+              {link.dropdown && (
+                <div
+                  className="
+                    invisible
+                    absolute
+                    left-1/2
+                    top-full
+                    z-50
+                    mt-3
+                    w-64
+                    -translate-x-1/2
+                    translate-y-2
+                    rounded-2xl
+                    border
+                    border-white/10
+                    bg-[#111111]/95
+                    p-2
+                    opacity-0
+                    shadow-2xl
+                    backdrop-blur-xl
+                    transition-all
+                    duration-200
+                    group-hover:visible
+                    group-hover:translate-y-0
+                    group-hover:opacity-100
+                  "
+                >
+                  {link.dropdown.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="
+                        block
+                        rounded-xl
+                        px-4
+                        py-3
+                        text-sm
+                        font-medium
+                        text-white/70
+                        transition-all
+                        duration-200
+                        hover:bg-violet-500/10
+                        hover:text-violet-400
+                      "
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -115,24 +205,53 @@ export function SiteHeader() {
           <nav className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6">
 
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="
-                  rounded-lg
-                  px-4
-                  py-3
-                  text-sm
-                  font-medium
-                  text-muted-foreground
-                  transition-all
-                  hover:bg-secondary
-                  hover:text-violet-400
-                "
-              >
-                {link.label}
-              </a>
+              <div key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="
+                    block
+                    rounded-lg
+                    px-4
+                    py-3
+                    text-sm
+                    font-medium
+                    text-muted-foreground
+                    transition-all
+                    hover:bg-secondary
+                    hover:text-violet-400
+                  "
+                >
+                  {link.label}
+                </a>
+
+                {/* Submenu Mobile */}
+                {link.dropdown && (
+                  <div className="ml-4 border-l border-border/60 pl-2">
+                    {link.dropdown.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="
+                          block
+                          rounded-lg
+                          px-4
+                          py-2.5
+                          text-xs
+                          font-medium
+                          text-muted-foreground
+                          transition-all
+                          hover:bg-secondary
+                          hover:text-violet-400
+                        "
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
 
             <a

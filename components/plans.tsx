@@ -17,6 +17,7 @@ const plans = [
       "Entrega rápida",
     ],
     featured: false,
+    id: "freelancer-video",
   },
   {
     icon: InstagramIcon,
@@ -32,6 +33,7 @@ const plans = [
       "Relatórios",
     ],
     featured: true,
+    id: "gestao-redes-sociais",
   },
   {
     icon: Globe,
@@ -47,8 +49,10 @@ const plans = [
       "Responsivo",
     ],
     featured: false,
+    id: "desenvolvimento-site",
   },
 ]
+
 export function Plans() {
   return (
     <section
@@ -68,86 +72,139 @@ export function Plans() {
         <div className="absolute -right-24 bottom-20 h-[360px] w-[360px] rounded-full bg-blue-500/10 blur-[170px]" />
 
       </div>
+
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
+
         <div className="mx-auto max-w-2xl text-center">
+
           <span className="inline-flex rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-violet-400">
             Planos & Serviços
           </span>
+
           <h2 className="mt-4 text-balance font-display text-5xl font-black tracking-tight text-white">
             Escolha a solução ideal
           </h2>
+
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
             Soluções flexíveis, do vídeo avulso à presença digital completa.
           </p>
+
         </div>
 
+        {/* CARDS */}
         <div className="mt-20 grid gap-8 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
 
-              className={`group relative overflow-hidden rounded-3xl border transition-all duration-500 hover:-translate-y-3 ${plan.featured
-                ? "scale-[1.03] border-violet-500/50 bg-gradient-to-b from-violet-500/10 to-white/[0.03] shadow-[0_0_50px_rgba(139,92,246,.25)]"
-                : "border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-violet-500/30 hover:shadow-xl hover:shadow-violet-500/10"
-                }`}
-            >
-              {plan.featured && (
-                <div className="absolute right-5 top-5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 px-4 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-lg">
-                  ⭐ MAIS ESCOLHIDO
+          {plans.map((plan) => {
+            const PlanIcon = plan.icon
+
+            return (
+              <div
+                key={plan.name}
+                id={plan.id}
+                className={`
+                  group
+                  relative
+                  scroll-mt-24
+                  overflow-hidden
+                  rounded-3xl
+                  border
+                  transition-all
+                  duration-500
+                  hover:-translate-y-3
+                  ${
+                    plan.featured
+                      ? "scale-[1.03] border-violet-500/50 bg-gradient-to-b from-violet-500/10 to-white/[0.03] shadow-[0_0_50px_rgba(139,92,246,.25)]"
+                      : "border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-violet-500/30 hover:shadow-xl hover:shadow-violet-500/10"
+                  }
+                `}
+              >
+
+                {/* MAIS ESCOLHIDO */}
+                {plan.featured && (
+                  <div className="absolute right-5 top-5 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 px-4 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-lg">
+                    ⭐ MAIS ESCOLHIDO
+                  </div>
+                )}
+
+                {/* HOVER GLOW */}
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <div className="absolute -right-10 -top-10 h-80 w-80 rounded-full bg-violet-500/30 blur-[120px]" />
                 </div>
-              )}
 
-              <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <div className="absolute -right-10 -top-10 h-80 w-80 rounded-full bg-violet-500/30 blur-[120px]" />
-              </div>
+                {/* CONTEÚDO */}
+                <div className="relative flex min-h-[540px] flex-col p-8">
 
-              <div className="relative flex min-h-[540px] flex-col p-8">
+                  {/* ÍCONE */}
+                  <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-600 via-purple-500 to-fuchsia-500 shadow-2xl shadow-violet-500/40">
+                    <PlanIcon className="h-10 w-10 text-white" />
+                  </div>
 
-                <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-600 via-purple-500 to-fuchsia-500 shadow-2xl shadow-violet-500/40">
-                  <plan.icon className="h-10 w-10 text-white" />
+                  {/* CATEGORIA */}
+                  <span className="mt-8 text-xs font-bold uppercase tracking-[0.20em] text-violet-400">
+                    {plan.category}
+                  </span>
+
+                  {/* TÍTULO */}
+                  <h3 className="mt-6 text-[32px] font-black leading-tight tracking-tight text-white">
+                    {plan.name}
+                  </h3>
+
+                  {/* TAGLINE */}
+                  <p className="mt-3 text-sm font-medium tracking-wide text-violet-300">
+                    {plan.tagline}
+                  </p>
+
+                  {/* DESCRIÇÃO */}
+                  <p className="mt-5 leading-7 text-gray-400">
+                    {plan.description}
+                  </p>
+
+                  {/* FEATURES */}
+                  <ul className="mt-8 flex-1 space-y-4 border-t border-white/10 pt-8">
+                    {plan.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-sm"
+                      >
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+
+                        <span>
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* BOTÃO */}
+                  <a href="#contato">
+                    <Button
+                      className={`
+                        mt-8
+                        w-full
+                        rounded-xl
+                        py-5
+                        font-semibold
+                        text-white
+                        transition-all
+                        duration-300
+                        ${
+                          plan.featured
+                            ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-violet-500/40"
+                            : "bg-gradient-to-r from-violet-700 to-purple-600 hover:from-violet-600 hover:to-fuchsia-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-violet-500/30"
+                        }
+                      `}
+                    >
+                      Quero este serviço →
+                    </Button>
+                  </a>
+
                 </div>
-
-                <span className="mt-8 text-xs font-bold uppercase tracking-[0.20em] text-violet-400">
-                  {plan.category}
-                </span>
-
-                <h3 className="mt-6 text-[32px] font-black leading-tight tracking-tight text-white">
-                  {plan.name}
-                </h3>
-
-                <p className="mt-3 text-sm font-medium tracking-wide text-violet-300">
-                  {plan.tagline}
-                </p>
-
-                <p className="mt-5 leading-7 text-gray-400">
-                  {plan.description}
-                </p>
-
-                <ul className="mt-8 flex-1 space-y-4 border-t border-white/10 pt-8">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a href="#contato">
-                  <Button
-                    className={`mt-8 w-full rounded-xl py-5 font-semibold text-white transition-all duration-300 ${plan.featured
-                      ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-violet-500/40"
-                      : "bg-gradient-to-r from-violet-700 to-purple-600 hover:from-violet-600 hover:to-fuchsia-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-violet-500/30"
-                      }`}
-                  >
-                    Quero este serviço →
-                  </Button>
-                </a>
               </div>
-            </div>
-          ))}
+            )
+          })}
+
         </div>
       </div>
     </section>
   )
 }
-

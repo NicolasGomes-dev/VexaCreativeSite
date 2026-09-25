@@ -74,7 +74,6 @@ export function Services() {
       id="services"
       className="relative border-t border-black/[0.06] bg-[#F5F5F7] text-[#08080B]"
     >
-
       {/* =====================================================
           TRANSIÇÃO SUPERIOR
       ====================================================== */}
@@ -104,7 +103,6 @@ export function Services() {
           bg-black/[0.06]
         "
       />
-
 
       {/* =====================================================
           BACKGROUND
@@ -144,7 +142,6 @@ export function Services() {
           "
         />
 
-
         {/* =====================================================
             CONTEÚDO
         ====================================================== */}
@@ -177,7 +174,6 @@ export function Services() {
 
               </div>
 
-
               <h2
                 className="
                   max-w-4xl
@@ -197,7 +193,6 @@ export function Services() {
                 </span>
               </h2>
 
-
               <p className="mt-6 max-w-2xl text-base leading-7 text-black/55 sm:text-lg">
                 Unimos audiovisual e tecnologia para criar experiências que fortalecem
                 marcas, comunicam ideias e geram novas oportunidades.
@@ -206,7 +201,6 @@ export function Services() {
             </div>
 
           </div>
-
 
           {/* =====================================================
               SERVICES
@@ -221,6 +215,13 @@ export function Services() {
               return (
                 <Link
                   key={service.number}
+                  id={
+                    service.number === "01"
+                      ? "producao-audiovisual"
+                      : service.number === "02"
+                        ? "desenvolvimento-web"
+                        : "producao-aerea"
+                  }
                   href={
                     service.number === "01"
                       ? "/servicos/audiovisual"
@@ -233,6 +234,7 @@ export function Services() {
                     relative
                     flex
                     min-h-[220px]
+                    scroll-mt-24
                     flex-col
                     justify-between
                     overflow-hidden
@@ -275,7 +277,6 @@ export function Services() {
                     <Icon className="h-5 w-5" />
                   </div>
 
-
                   {/* TÍTULO + CTA */}
 
                   <div className="flex items-end justify-between gap-6">
@@ -294,7 +295,6 @@ export function Services() {
                     >
                       {service.title}
                     </h3>
-
 
                     <div className="flex shrink-0 items-center gap-3">
 
@@ -335,7 +335,6 @@ export function Services() {
 
           </div>
 
-
           {/* =====================================================
               ESPECIALIDADES
           ====================================================== */}
@@ -361,9 +360,10 @@ export function Services() {
                       transition-all
                       duration-300
                       hover:bg-violet-500/[0.04]
-                      ${index !== 0
-                        ? "border-t border-black/10 lg:border-l lg:border-t-0"
-                        : ""
+                      ${
+                        index !== 0
+                          ? "border-t border-black/10 lg:border-l lg:border-t-0"
+                          : ""
                       }
                     `}
                   >
@@ -402,7 +402,6 @@ export function Services() {
         </div>
 
       </div>
-
     </section>
   )
 }
